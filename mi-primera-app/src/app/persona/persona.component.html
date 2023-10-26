@@ -3,3 +3,9 @@
     Apellido: {{apellido}}<br>
     Edad: {{getEdad()}}<br>
 </p>
+
+<div (keyup)="0">
+    <label for>Reperidor:</label><br>
+    <input #entrada />
+    {{entrada.value}}
+</div>

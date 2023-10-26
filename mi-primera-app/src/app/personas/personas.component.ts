@@ -19,4 +19,8 @@ export class PersonasComponent implements OnInit {
   ngOnInit() {
   }
   deshabilitar = false;
+  mensaje = "Persona no agregada"
+  agregarPersona() {
+    this.mensaje = "Persona agregada."
+  }
 }

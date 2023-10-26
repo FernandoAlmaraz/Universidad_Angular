@@ -18,5 +18,5 @@ export class PersonasComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  deshabilitar = false;
 }

@@ -7,10 +7,10 @@ import { Persona } from '../persona.model';
 })
 export class FormularioComponent {
   @Output() personaCreada = new EventEmitter<Persona>;
-  nombreInput: string = "";
-  apellidoInput: string = "";
+  // nombreInput: string = "";
+  // apellidoInput: string = "";
 
-  agregarPersona() {
-    this.personaCreada.emit(new Persona(this.nombreInput, this.apellidoInput));
+  agregarPersona(nombreRef: HTMLInputElement, apellidoRef: HTMLInputElement) {
+    this.personaCreada.emit(new Persona(nombreRef.value, apellidoRef.value));
   }
 }

@@ -1,16 +1,27 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Persona } from '../persona.model';
+import { LogginService } from '../LoggingService.service';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
+  constructor(private logginService: LogginService) {
+
+  }
   @Output() personaCreada = new EventEmitter<Persona>;
   // nombreInput: string = "";
   // apellidoInput: string = "";
 
-  agregarPersona(nombreRef: HTMLInputElement, apellidoRef: HTMLInputElement) {
-    this.personaCreada.emit(new Persona(nombreRef.value, apellidoRef.value));
+  @ViewChild('nombreRef') nombreRef!: ElementRef;
+  @ViewChild('apellidoRef') apellidoRef!: ElementRef;
+
+  agregarPersona() {
+    let PerCreada = new
+      Persona(this.nombreRef.nativeElement.value,
+        this.apellidoRef.nativeElement.value)
+    this.personaCreada.emit(PerCreada);
+    this.logginService.enviarMensajeAConsola("Eviamos Persona: " + PerCreada.nombre + " " + PerCreada.apellido)
   }
 }

@@ -21,10 +21,14 @@ export class PersonasComponent implements OnInit {
   deshabilitar = false;
   mensaje = "Persona no agregada";
   titulo = "inge";
+  mostrar = false;
+  sinPersona = "";
+
   agregarPersona() {
+    this.mostrar = true;
     this.mensaje = "Persona agregada."
   }
-  // event binding
+  // event binding 
   // modificarTitulo(event: Event) {
   //   this.titulo = (<HTMLInputElement>event.target).value;
   // }

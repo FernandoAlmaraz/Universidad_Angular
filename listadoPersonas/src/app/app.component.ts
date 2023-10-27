@@ -8,5 +8,9 @@ import { Persona } from './persona.model';
 })
 export class AppComponent {
   titulo = 'listadoPersonas';
-  personas: Persona[] = [new Persona('Fernando', 'Almaraz'), new Persona("Gabriel", "De La Quintana")];
+  personas: Persona[] = [new Persona('Fernando', 'Almaraz'),
+  new Persona("Gabriel", "De La Quintana"),
+  new Persona("Andres", "Borda"),
+  new Persona("Juan", "Perez"),
+  new Persona("Andrea", "Garcia")];
 }

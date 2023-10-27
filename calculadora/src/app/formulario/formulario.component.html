@@ -1,0 +1,12 @@
+<form >
+    <div class="form-group">
+        <label>Operador A:</label><br>
+        <input type="number" class="form-control" [(ngModel)]="valorA" name="valorA"><br>
+    </div>
+    <div class="form-group">
+        <label>Operador B</label><br>
+        <input type="number" class="form-control" [(ngModel)]="valorB" name="valorB">
+        <br>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="sumar()">SUMAR</button><br>
+</form>

@@ -7,17 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   Titulo = 'Aplicacion de Calculadora';
-  resultado = 0;
-  A: number = 0;
-  B: number = 0;
-
-  valorA(event: Event) {
-    this.A = Number((<HTMLInputElement>event.target).value);
+  resultadoPadre = 0;
+  resultadoProcesado(resultado: number) {
+    this.resultadoPadre = resultado;
   }
-  valorB(event: Event) {
-    this.B = Number((<HTMLInputElement>event.target).value);
-  }
-  sumar() {
-    return this.resultado = this.A + this.B;
-  }
+  // valorA(event: Event) {
+  //   this.A = Number((<HTMLInputElement>event.target).value);
+  // }
+  // valorB(event: Event) {
+  //   this.B = Number((<HTMLInputElement>event.target).value);
+  // }
+  // sumar() {
+  //   return this.resultado = this.A + this.B;
+  // }
 }

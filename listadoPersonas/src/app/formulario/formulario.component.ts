@@ -10,7 +10,9 @@ import { PersonasService } from '../personas.service';
 export class FormularioComponent {
   constructor(private logginService: LogginService,
     private personasService: PersonasService) {
-
+    this.personasService.saludar.subscribe(
+      (indice: string) => alert("el indicie es: " + indice)
+    )
   }
   //@Output() personaCreada = new EventEmitter<Persona>;
   // nombreInput: string = "";

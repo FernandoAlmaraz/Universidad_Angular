@@ -1,9 +1,9 @@
  <div class="box">
-  <form class="item">
-            <input type="text" name="nombre" id="nombre" placeholder="nombre" [(ngModel)]="nombreInput">
-            <input type="text" name="apellido" id="apellido" placeholder="apellido" [(ngModel)]="apellidoInput">
-          <button type="submit" class="btn btn-primary" (click)="agregarPersona()">  
-            +
-          </button>
+  <form class="item" #f="ngForm" (ngSubmit)="f.form.valid && OnagregarPersona() ">
+            <input type="text" name="nombre" id="nombre" placeholder="nombre" [(ngModel)]="nombreInput" required>
+            <input type="text" name="apellido" id="apellido" placeholder="apellido" [(ngModel)]="apellidoInput" required>
+          <button type="submit" class="btn btn-primary" style="cursor: pointer;">+</button>
+          <button *ngIf="index!=null" type="submit" style="cursor: pointer;" class="buttonRed"
+          (click)="eliminarPersona()">-</button>
   </form>
 </div>

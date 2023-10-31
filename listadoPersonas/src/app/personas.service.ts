@@ -16,4 +16,17 @@ export class PersonasService {
         this.logginService.enviarMensajeAConsola(persona.apellido + "  desde servico personasS")
     }
 
+    encontrarPersona(index: number) {
+        let persona: Persona = this.personas[index]
+        return persona;
+    }
+    modificarPersona(index: number, persona: Persona) {
+        let persona1 = this.personas[index]
+        persona1.nombre = persona.nombre;
+        persona1.apellido = persona.apellido;
+    }
+
+    eliminarPersona(index: number) {
+        this.personas.splice(index, 1);
+    }
 }

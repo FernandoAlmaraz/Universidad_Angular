@@ -13,6 +13,7 @@ export class FormularioComponent implements OnInit {
   @Output() personaCreada = new EventEmitter<Persona>;
   nombreInput: string = "";
   apellidoInput: string = "";
+  modoEdicion: number = 0;
   constructor(private logginService: LogginService,
     private personasService: PersonasService,
     private router: Router,
@@ -22,8 +23,9 @@ export class FormularioComponent implements OnInit {
     )
   }
   ngOnInit(): void {
+    this.modoEdicion = +this.route.snapshot.queryParams['modoEdicion']
     this.index = this.route.snapshot.params['id'];
-    if (this.index) {
+    if (this.modoEdicion != null && this.modoEdicion === 1) {
       let persona: Persona = this.personasService.encontrarPersona(this.index)
       this.nombreInput = persona.nombre;
       this.apellidoInput = persona.apellido
@@ -36,7 +38,7 @@ export class FormularioComponent implements OnInit {
 
     let PerCreada = new
       Persona(this.nombreInput, this.apellidoInput)
-    if (this.index) {
+    if (this.modoEdicion != null && this.modoEdicion === 1) {
       this.personasService.modificarPersona(this.index, PerCreada)
     }
     else {

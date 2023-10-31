@@ -23,8 +23,8 @@ export class FormularioComponent implements OnInit {
   }
   agregarValor() {
     if (this.tipoEvento === "ingresoOperacion")
-      this.ingresoServicio.ingresos.push(new Ingreso(this.descripcionInput, this.valorInput))
+      this.ingresoServicio.ingresos.push(new Ingreso(this.descripcionInput, this.valorInput));
     else
-      this.egresoServicio.egresos.push(new Egreso(this.descripcionInput, this.valorInput))
+      this.egresoServicio.egresos.push(new Egreso(this.descripcionInput, this.valorInput));
   }
 }

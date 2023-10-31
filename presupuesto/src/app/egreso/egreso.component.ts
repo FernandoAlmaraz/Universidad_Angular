@@ -9,7 +9,7 @@ import { EgresoService } from './egreso.service';
 })
 export class EgresoComponent implements OnInit {
   egresos: Egreso[] = [];
-  @Input() ingresoTotal: number = 0;
+  @Input() ingresoTotal!: number;
   constructor(private egresosService: EgresoService) {
 
   }

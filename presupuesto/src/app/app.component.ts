@@ -20,14 +20,14 @@ export class AppComponent {
   }
 
   getIngresoTotal(): number {
-    let ingresoTotal: number = 0;
+    let ingresoTotal!: number;
     this.ingresos.forEach(ingreso => {
       ingresoTotal = + ingreso.valor;
     });
     return ingresoTotal;
   }
   getEgresoTotal(): number {
-    let egresoTotal: number = 0;
+    let egresoTotal!: number;
     this.egresos.forEach(egreso => {
       egresoTotal = - egreso.valor;
     });

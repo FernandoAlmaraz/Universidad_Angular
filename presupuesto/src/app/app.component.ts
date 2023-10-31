@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Ingreso } from './ingreso/ingreso.model';
+import { Egreso } from './egreso/agreso.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'presupuesto';
+  ingresos: Ingreso[] = []
+  egresos: Egreso[] = []
+  constructor() {
+  }
 }

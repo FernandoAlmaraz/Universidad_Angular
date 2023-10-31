@@ -1,17 +1,5 @@
 <div class="box" id="heading">
-  <h1>{{titulo}}</h1>
+    <h1>Listado de Personas</h1>
 </div>
-<div class="box">
-   <app-persona 
-    *ngFor="let personaelemento of personas; let i = index"
-    [persona]="personaelemento"
-    [indice]="i">
-  </app-persona>
-  <div class="box">
-    <hr>
-    <app-formulario ></app-formulario>
-      <!-- (personaCreada)="onPersonaAgregada($event)" -->
-  </div>
-  <hr>
- 
-</div>
+
+<router-outlet></router-outlet>

@@ -14,19 +14,21 @@ export class FormularioComponent {
       (indice: string) => alert("el indicie es: " + indice)
     )
   }
-  //@Output() personaCreada = new EventEmitter<Persona>;
-  // nombreInput: string = "";
-  // apellidoInput: string = "";
+  @Output() personaCreada = new EventEmitter<Persona>;
+  nombreInput: string = "";
+  apellidoInput: string = "";
 
-  @ViewChild('nombreRef') nombreRef!: ElementRef;
-  @ViewChild('apellidoRef') apellidoRef!: ElementRef;
+  // @ViewChild('nombreRef') nombreRef!: ElementRef;
+  // @ViewChild('apellidoRef') apellidoRef!: ElementRef;
 
   agregarPersona() {
     let PerCreada = new
-      Persona(this.nombreRef.nativeElement.value,
-        this.apellidoRef.nativeElement.value)
+      Persona(this.nombreInput, this.apellidoInput)
+    // Persona(this.nombreRef.nativeElement.value,
+    // this.apellidoRef.nativeElement.value)
     //this.personaCreada.emit(PerCreada);
     //this.logginService.enviarMensajeAConsola("Eviamos Persona: " + PerCreada.nombre + " " + PerCreada.apellido)
     this.personasService.personaAgregada(PerCreada)
+
   }
 }

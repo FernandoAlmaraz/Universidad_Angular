@@ -1,14 +1,17 @@
-<div class="container">
-  <div class="col">
-    <h3>{{titulo}}</h3>
+<div class="box" id="heading">
+  <h1>{{titulo}}</h1>
+</div>
+<div class="box">
+   <app-persona 
+    *ngFor="let personaelemento of personas; let i = index"
+    [persona]="personaelemento"
+    [indice]="i">
+  </app-persona>
+  <div class="box">
     <hr>
     <app-formulario ></app-formulario>
       <!-- (personaCreada)="onPersonaAgregada($event)" -->
   </div>
   <hr>
-  <app-persona 
-    *ngFor="let personaelemento of personas; let i = index"
-    [persona]="personaelemento"
-    [indice]="i">
-  </app-persona>
+ 
 </div>

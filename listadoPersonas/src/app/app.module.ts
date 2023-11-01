@@ -10,12 +10,14 @@ import { PersonasService } from './personas.service';
 import { AppRoutingModule } from './app-routing.module';
 import { PersonasComponent } from './personas/personas.component';
 import { Router, RouterOutlet } from '@angular/router';
+import { ErrorComponent } from './error/error.component';
 @NgModule({
   declarations: [
     AppComponent,
     PersonaComponent,
     FormularioComponent,
     PersonasComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

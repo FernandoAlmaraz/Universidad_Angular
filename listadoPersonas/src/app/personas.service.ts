@@ -1,19 +1,28 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { LogginService } from "./LoggingService.service";
 import { Persona } from "./persona.model";
+import { DataService } from "./data.service";
 
 @Injectable()
 export class PersonasService {
-    personas: Persona[] = [new Persona('Fernando', 'Almaraz'),
-    new Persona("Gabriel", "De La Quintana"),
-    new Persona("Andres", "Borda"),
-    new Persona("Juan", "Perez"),
-    new Persona("Andrea", "Garcia")];
+    personas: Persona[] = [];
     saludar = new EventEmitter<string>();
-    constructor(private logginService: LogginService) { }
+    constructor(private dataService: DataService) { }
+
+    setPersonas(personas: Persona[]) {
+        this.personas = personas;
+    }
+
+    obtenerPersonas() {
+        return this.dataService.cargarPersonas();
+    }
+
     personaAgregada(persona: Persona) {
+        if (this.personas == null) {
+            this.personas = [];
+        }
         this.personas.push(persona);
-        this.logginService.enviarMensajeAConsola(persona.apellido + "  desde servico personasS")
+        this.dataService.guardarPersonas(this.personas)
     }
 
     encontrarPersona(index: number) {
@@ -24,9 +33,18 @@ export class PersonasService {
         let persona1 = this.personas[index]
         persona1.nombre = persona.nombre;
         persona1.apellido = persona.apellido;
+        //  this.dataService.modificarPersonaService(index, persona);
     }
 
     eliminarPersona(index: number) {
         this.personas.splice(index, 1);
+        this.dataService.eliminarPersona(index);
+        //se vuelve a agregar el arreglo
+        this.modificarPersonas()
+    }
+    modificarPersonas() {
+        if (this.personas != null) {
+            this.dataService.guardarPersonas(this.personas);
+        }
     }
 }

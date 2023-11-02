@@ -28,7 +28,7 @@ export class FormularioComponent implements OnInit {
     if (this.modoEdicion != null && this.modoEdicion === 1) {
       let persona: Persona = this.personasService.encontrarPersona(this.index)
       this.nombreInput = persona.nombre;
-      this.apellidoInput = persona.apellido
+      this.apellidoInput = persona.apellido;
     }
   }
   // @ViewChild('nombreRef') nombreRef!: ElementRef;

@@ -9,8 +9,11 @@ import { LogginService } from './LoggingService.service';
 import { PersonasService } from './personas.service';
 import { AppRoutingModule } from './app-routing.module';
 import { PersonasComponent } from './personas/personas.component';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
+import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,14 +21,16 @@ import { ErrorComponent } from './error/error.component';
     FormularioComponent,
     PersonasComponent,
     ErrorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    RouterOutlet
+    RouterOutlet,
+    HttpClientModule
   ],
-  providers: [LogginService, PersonasService],
+  providers: [LogginService, PersonasService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
